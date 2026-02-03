@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | TodoPro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body class="dashboard-body">
+
+  <!-- ================= HEADER ================= -->
+  <header class="dashboard-header">
+    <div class="brand">
+      <h2>Todo<span>Pro</span></h2>
+    </div>
+
+    <div class="dev-logo">
+      <img src="images/logo.png" alt="Nishant Trivedi Logo">
+    </div>
+
+    <button id="logoutBtn" class="logout-btn">Logout</button>
+  </header>
+
+  <!-- ================= STATS ================= -->
+  <section class="stats">
+    <div class="card">
+      <h4>Total Tasks</h4>
+      <p id="totalTasks">0</p>
+    </div>
+    <div class="card">
+      <h4>Completed</h4>
+      <p id="completedTasks">0</p>
+    </div>
+    <div class="card">
+      <h4>Pending</h4>
+      <p id="pendingTasks">0</p>
+    </div>
+    <div class="card">
+      <h4>Productivity</h4>
+      <p id="productivityScore">0%</p>
+    </div>
+  </section>
+
+  <!-- ================= WEEKLY ACTIVITY ================= -->
+  <section class="chart-section">
+    <h3>Weekly Activity</h3>
+    <canvas id="weeklyChart"></canvas>
+  </section>
+<section class="chart-section">
+  <h3>Weekly Productivity</h3>
+  <canvas id="productivityChart"></canvas>
+</section>
+
+  <!-- ================= TASK MANAGER ================= -->
+  <section class="tasks">
+    <h3>Task Manager</h3>
+
+    <div class="export-buttons">
+      <button onclick="exportPDF()">Export PDF</button>
+      <button onclick="exportCSV()">Export CSV</button>
+    </div>
+
+    <div class="task-input">
+      <input id="taskInput" type="text" placeholder="Enter a task">
+      <!-- 📅 Task Deadline -->
+<label for="taskDate" class="sr-only">Task Deadline</label>
+<input 
+  id="taskDate" 
+  type="date" 
+  title="Task Deadline"
+/>
+
+<!-- ⚡ Task Priority -->
+<label for="taskPriority" class="sr-only">Task Priority</label>
+<select 
+  id="taskPriority" 
+  title="Task Priority"
+>
+  <option value="">Select Priority</option>
+  <option value="Low">Low</option>
+  <option value="Medium">Medium</option>
+  <option value="High">High</option>
+</select>
+
+
+
+      <button type="button" id="addTaskBtn">Add</button>
+
+    </div>
+
+    <ul id="taskList"></ul>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    Made with ❤️ by <strong>Nishant Trivedi</strong>
+  </footer>
+
+  <!-- ================= SCRIPT ================= -->
+  <script src="js/todo.js"></script>
+
+</body>
+</html>
